@@ -1,0 +1,79 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#define MAX 5
+void push(int);
+int pop();
+void show();
+int top=-1;
+int stack[MAX];
+void main()
+{
+int ch,a;
+clrscr();
+do
+{
+printf("\nEnter the choice\n");
+scanf("%d",&ch);
+switch(ch)
+{
+case 1:printf("\nENter a No:\n");
+scanf("%d",&a);
+push(a);
+break;
+case 2:a=pop();
+printf("\n%d is the element to be removed\n",a);
+break;
+case 3:show();
+break;
+default:printf("\nInvalid input");
+}
+printf("\nENter 1 for continuation\n");
+scanf("%d",&a);
+}while(a==1);
+getch();
+}
+void push(int a)
+{
+if(top==MAX-1)
+{
+printf("\n Stack overflow\n");
+exit(0);
+}
+else
+{
+top++;
+stack[top]=a;
+}
+}
+int pop()
+{
+int a;
+if(top==-1)
+{
+printf("\nStack Underflow\n");
+exit(0);
+}
+else
+{
+a=stack[top];
+top--;
+}
+return a;
+}
+void show()
+{
+int i;
+if(top==-1)
+{
+printf("\nStack Underflow\n");
+exit(1);
+}
+else
+{
+for(i=top;i>0;i--)
+{
+printf("%3d",stack[i]);
+}
+}
+}
