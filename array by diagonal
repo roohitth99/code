@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<conio.h>
+#include<malloc.h>
+void main()
+{
+int n,i,j;
+clrscr();
+printf("\nEnter size\n");
+scanf("%d",&n);
+i=n*n;
+int* a=(int*)malloc(i*sizeof(int));
+int* b=(int*)malloc(n*sizeof(int));
+printf("\nEnter the elements\n");
+for(i=0;i<n;i++)
+{
+for(j=0;j<n;j++)
+scanf("%d",a+i*n+j);
+}
+for(i=0;i<n;i++)
+{
+for(j=0;j<n;j++)
+printf("%3d",*(a+j*n+i));
+printf("\n");
+}
+for(i=0;i<n;i++)
+{
+*(b+i)=*(a+i*n+i);
+printf("%d ",*(b+i));
+}
+free(a);
+free(b);
+getch();
+}
