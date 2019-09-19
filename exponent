@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<conio.h>
+float expo(float,int);
+void main()
+{
+float x;
+int n;
+clrscr();
+printf("\nEnter num and exponent\n");
+scanf("%f%d",&x,&n);
+printf("\nThe value is: %f\n",expo(x,n));
+getch();
+}
+float expo(float x,int n)
+{
+if(n<0)
+return 1/expo(x,-n);
+else if(n==0)
+return 1;
+else
+return x*expo(x,n-1);
+}
