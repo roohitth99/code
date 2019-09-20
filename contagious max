@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<stdlib.h>
+void main()
+{
+    int i,j,k,sum,maxSum,m,n,count;
+    printf("\nEnter count\n");
+    scanf("%d",&count);
+    int *a=(int *)malloc(count*sizeof(int));
+    printf("\nEnter the elements\n");
+    for(i=0;i<count;i++)
+    scanf("%d",(a+i));
+    for(i=0; i<count; i++)
+  {
+    for(j=i; j<count; j++)
+    {
+      sum = 0;
+      for(k=i ; k<j; k++)
+      {
+        sum = sum + *(a+k);
+      }
+      if(sum>maxSum)
+      {
+        maxSum = sum;
+        m=i;
+        n=j;
+      }
+    }
+   }
+   printf("\nThe array is \n");
+  for(i=m;i<n;i++)
+  printf("%d ",*(a+i));
+  free(a);
+}
