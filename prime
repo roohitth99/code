@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+int isprime(int);
+void main()
+{
+    int n;
+    printf("\nEnter a No:\n");
+    scanf("%d",&n);
+    if(n==1)
+    printf("Neither even nor prime");
+    else if(isprime(n))
+    printf("prime");
+    else
+    printf("not prime");
+}
+int isprime(int n)
+{
+    int i=sqrt(n);
+    abc:
+    if(n%i==0)
+    return 0;
+    else
+    {
+    i--;
+    if(i>1)
+    goto abc;
+    else 
+    return 1;
+    }
+}
