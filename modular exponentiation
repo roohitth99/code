@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<math.h>
+int expo(int,int);
+void main()
+{
+    int y,m,x,z;
+    printf("\nEnter base and power\n");
+    scanf("%d%d",&x,&y);
+    printf("\nEnter M\n");
+    scanf("%d",&m);
+    z=expo(x,y)%m;
+    printf("\nThe value is %d\n",z);
+}
+int expo(int x,int n)
+{
+if(n<0)
+return 1/expo(x,-n);
+else if(n==0)
+return 1;
+else
+return x*expo(x,n-1);
+}
